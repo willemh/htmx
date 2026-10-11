@@ -1,0 +1,29 @@
+{
+  "name": "htmx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "npx @tailwindcss/cli -i src/app.css -o dist/public/output.css",
+    "dev": "npx @tailwindcss/cli --watch -i src/app.css -o dist/public/output.css & tsx watch src/index.ts",
+    "build": "npm run build:css && tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@hono/node-server": "^2.1.1",
+    "@tailwindcss/cli": "^4.3.3",
+    "daisyui": "^5.7.42",
+    "hono": "^4.13.8",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "tsx": "^4.23.0",
+    "typescript": "^7.0.2"
+  }
+}
