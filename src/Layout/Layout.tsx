@@ -1,8 +1,10 @@
 import type { PropsWithChildren } from 'hono/jsx'
 import { Header } from './Header.js'
+import { PageFooter } from './PageFooter.js'
 
 type LayoutProps = PropsWithChildren<{
   title?: string
+  header?: PropsWithChildren['children']
 }>
 
 const cssUrl =
@@ -10,7 +12,7 @@ const cssUrl =
     ? '/public/output.css'
     : `/public/output.css?v=${Date.now()}`
 
-export const Layout = ({ title = 'Test Application', children }: LayoutProps) => {
+export const Layout = ({ title = 'Test Application', header, children }: LayoutProps) => {
   return (
     <html data-theme="cupcake">
       <head>
@@ -20,7 +22,10 @@ export const Layout = ({ title = 'Test Application', children }: LayoutProps) =>
         <link rel="stylesheet" href={cssUrl} />
       </head>
       <body>
-        <Header title={title}></Header>{children}</body>
+        {header ?? <Header title={title} />}
+        {children}
+        {<PageFooter />}
+      </body>
     </html>
   )
 }

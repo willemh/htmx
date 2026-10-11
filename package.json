@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:css": "npx @tailwindcss/cli -i src/app.css -o dist/public/output.css",
-    "dev": "npx @tailwindcss/cli --watch -i src/app.css -o dist/public/output.css & tsx watch src/index.ts",
+    "dev": "npx @tailwindcss/cli --watch -i src/app.css -o dist/public/output.css & node --env-file-if-exists=.env --import tsx --watch src/index.ts",
     "build": "npm run build:css && tsc",
-    "start": "node dist/index.js"
+    "start": "node --env-file-if-exists=.env dist/index.js"
   },
   "keywords": [],
   "author": "",

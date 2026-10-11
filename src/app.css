@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./showcase/showcase.css";
 @plugin "daisyui" {
   themes: all;
 }
