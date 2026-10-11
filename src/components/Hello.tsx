@@ -1,4 +1,4 @@
-import { Hero } from "../ui/Hero/Hero.js"
+import { Hero } from "../ui/layout/Hero/Hero.js"
 
 export const Hello = () => {
   return <>
