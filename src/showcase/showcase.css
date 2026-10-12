@@ -1,4 +1,5 @@
-:root:has(input[name="site-mode"][value="dark"]:checked) {
+:root:has(input[name="site-mode"][value="dark"]:checked),
+:root[data-theme-mode="dark"] {
   color-scheme: dark;
   --color-base-100: color-mix(in oklch, oklch(17% 0.015 260) 92%, var(--color-primary));
   --color-base-200: color-mix(in oklch, oklch(22% 0.015 260) 88%, var(--color-primary));

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:css": "npx @tailwindcss/cli -i src/app.css -o dist/public/output.css",
-    "dev": "npx @tailwindcss/cli --watch -i src/app.css -o dist/public/output.css & node --env-file-if-exists=.env --import tsx --watch src/index.ts",
+    "dev": "concurrently --kill-others --names css,server \"npx @tailwindcss/cli --watch -i src/app.css -o dist/public/output.css\" \"node --env-file-if-exists=.env --import tsx --watch src/index.ts\"",
     "build": "npm run build:css && tsc",
     "start": "node --env-file-if-exists=.env dist/index.js"
   },
@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@types/node": "^26.1.1",
+    "concurrently": "^10.0.6",
     "tsx": "^4.23.0",
     "typescript": "^7.0.2"
   }
